@@ -1,1 +1,0 @@
-window.showNotification=function(message,type="success"){const el=document.createElement("div");el.className=`alert ${type}`;el.textContent=message;el.style.cssText="position:fixed;right:20px;bottom:20px;z-index:99;display:block;max-width:360px";document.body.append(el);setTimeout(()=>el.remove(),3500);};
