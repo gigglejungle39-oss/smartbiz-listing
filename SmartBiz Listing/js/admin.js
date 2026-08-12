@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll("[data-admin-action]").forEach(button=>button.addEventListener("click",()=>{button.textContent="Updated";button.disabled=true;}));});
