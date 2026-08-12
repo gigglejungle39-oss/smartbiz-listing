@@ -48,12 +48,14 @@ async function loadBusinesses() {
   if (!list) return;
 
   list.innerHTML = `<div class="card empty-state">Loading businesses...</div>`;
-  let businesses = demoBusinesses;
+  let businesses = [];
 
   if (window.supabaseClient) {
     const { data, error } = await window.supabaseClient
       .from("businesses")
       .select("id,business_name,slug,category,description,city,state,logo_url,approval_status,created_at")
+      .eq("payment_status", "paid")
+      .eq("approval_status", "approved")
       .order("created_at", { ascending: false });
 
     if (error) {
